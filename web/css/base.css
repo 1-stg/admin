@@ -1,3 +1,26 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    margin-bottom: 0;
+}
+
 li {
     list-style: none;
+}
+
+.header_img {
+    width: 2rem;
+}
+
+.bg-grey {
+    background-color: #E6E6E6;
+}
+
+.bg-black {
+    height: 100%;
+    background-color: #414141 !important;
+    color: white;
 }
