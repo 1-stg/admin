@@ -116,7 +116,7 @@ createApp({
         },
 
         search() {
-            if (this.searchText.length < 3) {
+            if (this.searchText.length < 1) {
                 if (this.users !== users) {
                     this.loadUsers();
                 }

@@ -26,6 +26,10 @@ body {
     }
 }
 
+img {
+    user-select: none;
+}
+
 .card {
     overflow: hidden;
     border: none;
@@ -53,7 +57,8 @@ body {
     max-width: 80%;
     max-height: 80%;
     object-fit: contain;
-    filter: brightness(1000%);;
+    filter: brightness(1000%);
+    ;
     opacity: 1;
 }
 
@@ -63,7 +68,6 @@ h3,
 h4,
 h5,
 h6 {
-    color: black !important;
     margin-bottom: 0;
 }
 
@@ -92,24 +96,15 @@ main {
 
 :root {
     --fs-xs: clamp(0.75rem, 2vw, 0.875rem);
-    /* 12-14px */
     --fs-sm: clamp(0.875rem, 2.5vw, 1rem);
-    /* 14-16px */
     --fs-base: clamp(1rem, 3vw, 1.125rem);
-    /* 16-18px */
     --fs-md: clamp(1.125rem, 3.5vw, 1.25rem);
-    /* 18-20px */
     --fs-lg: clamp(1.25rem, 4vw, 1.5rem);
-    /* 20-24px */
     --fs-xl: clamp(1.5rem, 5vw, 1.75rem);
-    /* 24-28px */
     --fs-2xl: clamp(1.75rem, 6vw, 2rem);
-    /* 28-32px */
     --fs-3xl: clamp(2rem, 7vw, 2.5rem);
-    /* 32-40px */
 }
 
-/* Переопределение Bootstrap классов шрифтов */
 .fs-1,
 .fs-2,
 .fs-3,
@@ -128,13 +123,11 @@ h6,
 .h4,
 .h5,
 .h6 {
-    color: black !important;
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
 }
 
-/* Кастомные адаптивные классы */
 .fs-adaptive-hero {
     font-size: var(--fs-3xl);
 }
@@ -167,7 +160,6 @@ h6,
     font-size: var(--fs-xs);
 }
 
-/* Переопределение конкретных Bootstrap классов */
 .fs-1 {
     font-size: var(--fs-3xl) !important;
 }
@@ -192,7 +184,6 @@ h6,
     font-size: var(--fs-base) !important;
 }
 
-/* Специальные настройки для маленьких экранов */
 @media (max-width: 768px) {
     .fs-5 {
         font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
@@ -206,7 +197,6 @@ h6,
         font-size: clamp(1.125rem, 4.5vw, 1.25rem) !important;
     }
 
-    /* Уменьшаем отступы для карточек на мобильных */
     .p-4 {
         padding: 1rem !important;
     }
@@ -219,7 +209,6 @@ h6,
         padding: 0.5rem !important;
     }
 
-    /* Уменьшаем заголовки в карточках */
     h2,
     .h2 {
         font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
