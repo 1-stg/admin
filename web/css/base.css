@@ -2,7 +2,67 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.btn-dark {
+    background-color: #414141;
+    border: none;
+}
+
+.f-invert {
+    filter: invert();
+}
+
+.form-control {
+
+    transition: all 0.2s ease-in-out;
+    border: none;
+
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+
+    &:focus {
+        border: none;
+        box-shadow: none;
+        outline: 2px solid #212529;
+
+    }
+}
+
+.card {
+    overflow: hidden;
+    border: none;
+}
+
+.card-img-wrapper {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #414141;
+}
+
+.card-img-top-custom {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Стили для заглушки */
+.base-img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    filter: brightness(1000%);;
+    opacity: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: black !important;
     margin-bottom: 0;
 }
@@ -23,4 +83,215 @@ li {
     height: 100%;
     background-color: #414141 !important;
     color: white;
+}
+
+main {
+    min-height: 100dvh;
+}
+
+
+:root {
+    --fs-xs: clamp(0.75rem, 2vw, 0.875rem);
+    /* 12-14px */
+    --fs-sm: clamp(0.875rem, 2.5vw, 1rem);
+    /* 14-16px */
+    --fs-base: clamp(1rem, 3vw, 1.125rem);
+    /* 16-18px */
+    --fs-md: clamp(1.125rem, 3.5vw, 1.25rem);
+    /* 18-20px */
+    --fs-lg: clamp(1.25rem, 4vw, 1.5rem);
+    /* 20-24px */
+    --fs-xl: clamp(1.5rem, 5vw, 1.75rem);
+    /* 24-28px */
+    --fs-2xl: clamp(1.75rem, 6vw, 2rem);
+    /* 28-32px */
+    --fs-3xl: clamp(2rem, 7vw, 2.5rem);
+    /* 32-40px */
+}
+
+/* Переопределение Bootstrap классов шрифтов */
+.fs-1,
+.fs-2,
+.fs-3,
+.fs-4,
+.fs-5,
+.fs-6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    color: black !important;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Кастомные адаптивные классы */
+.fs-adaptive-hero {
+    font-size: var(--fs-3xl);
+}
+
+.fs-adaptive-title {
+    font-size: var(--fs-2xl);
+}
+
+.fs-adaptive-subtitle {
+    font-size: var(--fs-xl);
+}
+
+.fs-adaptive-h3 {
+    font-size: var(--fs-lg);
+}
+
+.fs-adaptive-h4 {
+    font-size: var(--fs-md);
+}
+
+.fs-adaptive-body {
+    font-size: var(--fs-base);
+}
+
+.fs-adaptive-small {
+    font-size: var(--fs-sm);
+}
+
+.fs-adaptive-xs {
+    font-size: var(--fs-xs);
+}
+
+/* Переопределение конкретных Bootstrap классов */
+.fs-1 {
+    font-size: var(--fs-3xl) !important;
+}
+
+.fs-2 {
+    font-size: var(--fs-2xl) !important;
+}
+
+.fs-3 {
+    font-size: var(--fs-xl) !important;
+}
+
+.fs-4 {
+    font-size: var(--fs-lg) !important;
+}
+
+.fs-5 {
+    font-size: var(--fs-md) !important;
+}
+
+.fs-6 {
+    font-size: var(--fs-base) !important;
+}
+
+/* Специальные настройки для маленьких экранов */
+@media (max-width: 768px) {
+    .fs-5 {
+        font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
+    }
+
+    .fs-4 {
+        font-size: clamp(1rem, 4vw, 1.125rem) !important;
+    }
+
+    .fs-3 {
+        font-size: clamp(1.125rem, 4.5vw, 1.25rem) !important;
+    }
+
+    /* Уменьшаем отступы для карточек на мобильных */
+    .p-4 {
+        padding: 1rem !important;
+    }
+
+    .p-3 {
+        padding: 0.75rem !important;
+    }
+
+    .p-2 {
+        padding: 0.5rem !important;
+    }
+
+    /* Уменьшаем заголовки в карточках */
+    h2,
+    .h2 {
+        font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
+    }
+
+    h3,
+    .h3 {
+        font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .fs-6 {
+        font-size: clamp(0.75rem, 3vw, 0.875rem) !important;
+    }
+
+    .fs-5 {
+        font-size: clamp(0.75rem, 3.2vw, 0.875rem) !important;
+    }
+
+    .col-4 h3,
+    .col-6 h3 {
+        font-size: clamp(0.75rem, 3vw, 0.875rem) !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .fs-5 {
+        font-size: clamp(0.875rem, 2.5vw, 1rem) !important;
+    }
+
+    .fs-4 {
+        font-size: clamp(1rem, 3vw, 1.125rem) !important;
+    }
+}
+
+@media (min-width: 1440px) {
+    .fs-5 {
+        font-size: 1.125rem !important;
+    }
+
+    .fs-4 {
+        font-size: 1.25rem !important;
+    }
+
+    .fs-3 {
+        font-size: 1.5rem !important;
+    }
+
+    .fs-2xl {
+        font-size: 2rem !important;
+    }
+}
+
+.text-center {
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.gap-4 {
+    gap: 0.75rem !important;
+}
+
+@media (max-width: 768px) {
+    .gap-4 {
+        gap: 0.5rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .gap-4 {
+        gap: 0.375rem !important;
+    }
 }
