@@ -9,6 +9,11 @@ createApp({
 
     methods: {
         loadUsers() {
+            if (localStorage.length == 0) {
+                this.users = [];
+                return;
+            }
+
             this.users = JSON.parse(localStorage.getItem('users'));
             return this.users;
         },
@@ -34,7 +39,19 @@ createApp({
                     return user;
                 }
             })
+        },
+
+        loadDataFromLocalstorage() {
+            localStorage.setItem('cars', JSON.stringify(cars));
+            localStorage.setItem('users', JSON.stringify(users));
+            this.loadUsers();
+        },
+
+        clearData() {
+            localStorage.clear();
+            this.loadUsers();
         }
+
     },
 
     mounted() {

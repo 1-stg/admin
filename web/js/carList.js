@@ -2,7 +2,7 @@ const cars = [
     {
         'id': 1,
         'userId': 1,
-        'images': ["web/images/png/audi_r8.png", "web/images/png/audi_r8_2.jpg", "web/images/png/audi_r8_3.jpg"],
+        'images': ["/audi_r8.png", "/audi_r8_2.jpg", "/audi_r8_3.jpg"],
         'mark': "Audi",
         'model': "R8",
         'title': "Audi R8",
@@ -18,7 +18,7 @@ const cars = [
     {
         'id': 2,
         'userId': 1,
-        'images': ["web/images/png/bmw_m4.png", "web/images/png/bmw_m4_2.jpg"],
+        'images': ["/bmw_m4.png", "/bmw_m4_2.jpg"],
         'mark': "Bmw",
         'model': "M4",
         'title': "Bmw M4",
@@ -34,7 +34,7 @@ const cars = [
     {
         'id': 3,
         'userId': 1,
-        'images': ["web/images/png/toyota_rav4.png"],
+        'images': ["/toyota_rav4.png"],
         'mark': "Toyota",
         'model': "RAV4",
         'title': "Toyota RAV4",
@@ -50,7 +50,7 @@ const cars = [
     {
         'id': 4,
         'userId': 4,
-        'images': ["web/images/png/mclaren_720s.png"],
+        'images': ["/mclaren_720s.png"],
         'mark': "McLaren",
         'model': "720S",
         'title': "McLaren 720S",
@@ -66,7 +66,7 @@ const cars = [
     {
         'id': 5,
         'userId': 5,
-        'images': ["web/images/png/porsche_panamera.png"],
+        'images': ["/porsche_panamera.png"],
         'mark': "Porsche",
         'model': "Panamera",
         'title': "Porsche Panamera",
@@ -82,7 +82,7 @@ const cars = [
     {
         'id': 6,
         'userId': 6,
-        'images': ["web/images/png/vaz_2107.png"],
+        'images': ["/vaz_2107.png"],
         'mark': "Lada (ВАЗ)",
         'model': "2107",
         'title': "Lada (ВАЗ) 2107",
@@ -98,7 +98,7 @@ const cars = [
     {
         'id': 7,
         'userId': 7,
-        'images': ["web/images/png/nissan_skyline.png"],
+        'images': ["/nissan_skyline.png"],
         'mark': "Nissan",
         'model': "Skyline R34",
         'title': "Nissan Skyline R34",
@@ -114,7 +114,7 @@ const cars = [
     {
         'id': 8,
         'userId': 8,
-        'images': ["web/images/png/audi_r8_2.jpg", "web/images/png/audi_r8_3.jpg"],
+        'images': ["/audi_r8_2.jpg", "/audi_r8_3.jpg"],
         'mark': "Audi",
         'model': "R8",
         'title': "Audi R8",
@@ -128,5 +128,3 @@ const cars = [
         'driveShaft': 'Полный'
     },
 ];
-
-// localStorage.setItem('cars', JSON.stringify(cars));

@@ -7,7 +7,8 @@ const users = [
         photo: "1.jpg",
         password: "ivan123",
         phone: "+7 (901) 123-45-67",
-        email: "ivan.ivanov@example.com"
+        email: "ivan.ivanov@example.com",
+        status: "active"
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ const users = [
         photo: "",
         password: "maria2023",
         phone: "+7 (902) 234-56-78",
-        email: "maria.petrova@example.com"
+        email: "maria.petrova@example.com",
+        status: "active"
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ const users = [
         photo: "",
         password: "alexey123",
         phone: "+7 (903) 345-67-89",
-        email: "alexey@example.com"
+        email: "alexey@example.com",
+        status: "active"
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ const users = [
         photo: "",
         password: "elena2804",
         phone: "+7 (904) 456-78-90",
-        email: "elena.smirnova@example.com"
+        email: "elena.smirnova@example.com",
+        status: "active"
     },
     {
         id: 5,
@@ -47,7 +51,8 @@ const users = [
         photo: "",
         password: "dima1989",
         phone: "+7 (905) 567-89-01",
-        email: "dmitry@example.com"
+        email: "dmitry@example.com",
+        status: "active"
     },
     {
         id: 6,
@@ -57,7 +62,8 @@ const users = [
         photo: "",
         password: "anna2712",
         phone: "+7 (906) 678-90-12",
-        email: "anna.kozlova@example.com"
+        email: "anna.kozlova@example.com",
+        status: "active"
     },
     {
         id: 7,
@@ -67,7 +73,8 @@ const users = [
         photo: "",
         password: "sergey2023",
         phone: "+7 (907) 789-01-23",
-        email: "sergey.novikov@example.com"
+        email: "sergey.novikov@example.com",
+        status: "active"
     },
     {
         id: 8,
@@ -77,7 +84,8 @@ const users = [
         photo: "",
         password: "olga2405",
         phone: "+7 (908) 890-12-34",
-        email: "olga@example.com"
+        email: "olga@example.com",
+        status: "active"
     },
     {
         id: 9,
@@ -87,7 +95,8 @@ const users = [
         photo: "",
         password: "pavel123",
         phone: "+7 (909) 901-23-45",
-        email: "pavel.morozov@example.com"
+        email: "pavel.morozov@example.com",
+        status: "active"
     },
     {
         id: 10,
@@ -97,6 +106,7 @@ const users = [
         photo: "",
         password: "tatiana2023",
         phone: "+7 (910) 012-34-56",
-        email: "tatiana@example.com"
+        email: "tatiana@example.com",
+        status: "active"
     }
 ];
