@@ -15,7 +15,7 @@
     <script src="web/js/usersList.js"></script>
     <script src="web/js/carList.js"></script>
     <script src="web/js/cars.js" defer></script>
-    <link rel="stylesheet" href="web/css/base.css">
+    
     <link rel="stylesheet" href="web/css/font.css">
     <link href="https://googleapis.com" rel="stylesheet">
 </head>
@@ -76,12 +76,15 @@
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-2 mt-2 g-2">
-                <div class="col"><button class="btn btn-dark p-3 w-100" @click="loadDataFromLocalstorage()">Загрузить данные</button></div>
+                <div class="col"><button class="btn btn-dark p-3 w-100" @click="loadDataFromLocalstorage()">Загрузить
+                        данные</button></div>
                 <div class="col"><button class="btn btn-dark p-3 w-100" @click="clearData()">Очистить
                         данные</button></div>
             </div>
         </main>
     </div>
+    <script src="/web/js/jquery-4.0.0.min.js"></script>
+    <script defer src="/web/js/theme.js"></script>
 </body>
 
 </html>

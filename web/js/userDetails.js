@@ -5,7 +5,6 @@ createApp({
             user: {
                 cars: [],
             },
-            searchText: '1243',
         }
     },
 
@@ -127,30 +126,6 @@ createApp({
             location.href = '/users.html';
             console.log(localStorage);
         },
-
-        search() {
-            if (this.searchText.length < 1) {
-                if (this.users !== users) {
-                    this.loadUsers();
-                }
-                return;
-            }
-
-
-            this.users = users.filter((user) => {
-                if (user.fullName.toLowerCase().includes(this.searchText.toLowerCase())) {
-                    return user;
-                }
-
-                if (user.phone.toLowerCase().includes(this.searchText.toLowerCase())) {
-                    return user;
-                }
-
-                if (user.email.toLowerCase().includes(this.searchText.toLowerCase())) {
-                    return user;
-                }
-            })
-        }
     },
 
     mounted() {

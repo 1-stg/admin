@@ -1,12 +1,19 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f5f5f5;
-    color: #212529;
+header {
+    background-color: #2d2d2d;
 }
 
-header {
-    background-color: #ffffff;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
 }
+
+header img {
+    width: 1.6rem;
+    cursor: pointer;
+    filter: invert(1);
+}
+
 
 .toggle {
     width: 1.6rem;
@@ -14,47 +21,42 @@ header {
 }
 
 .btn-dark {
-    background-color: #414141;
+    background-color: #2d2d2d;
     border: none;
     color: white;
 }
 
 .btn-dark:hover {
-    background-color: #555555;
+    background-color: #3d3d3d;
     color: white;
 }
 
-.f-invert {
-    filter: invert(1);
-}
-
 a {
-    color: #212529;
-    text-decoration: none;
+    color: #e0e0e0;
 }
 
 a:hover {
-    color: #000000;
+    color: #ffffff;
 }
 
 .form-control {
     transition: all 0.2s ease-in-out;
     border: none;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    color: #212529;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    background-color: #2d2d2d;
+    color: #e0e0e0;
 }
 
 .form-control:focus {
     border: none;
     box-shadow: none;
-    outline: 2px solid #adadad;
-    background-color: #ffffff;
-    color: #000000;
+    outline: 2px solid #5a5a5a;
+    background-color: #3d3d3d;
+    color: #ffffff;
 }
 
 .form-control::placeholder {
-    color: #aaaaaa;
+    color: #888888;
 }
 
 img {
@@ -64,8 +66,8 @@ img {
 .card {
     overflow: hidden;
     border: none;
-    background-color: #ffffff;
-    color: #212529;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
 }
 
 .card-img-wrapper {
@@ -74,7 +76,7 @@ img {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #e9ecef;
+    background-color: #2d2d2d;
 }
 
 .img-wrapper {
@@ -83,7 +85,7 @@ img {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #e9ecef;
+    background-color: #2d2d2d;
 }
 
 .card-img-top-custom {
@@ -98,7 +100,7 @@ img {
     max-width: 80%;
     max-height: 80%;
     object-fit: contain;
-    filter: brightness(0%);
+    filter: brightness(1000%);
     opacity: 1;
 }
 
@@ -108,22 +110,22 @@ li {
 
 .header_img {
     width: 2rem;
-    filter: invert(0);
+    filter: invert(1);
 }
 
 .bg-grey {
-    background-color: #e9ecef;
+    background-color: #1e1e1e;
 }
 
 .bg-black {
     height: 100%;
-    background-color: #2c2c2c !important;
-    color: #f5f5f5;
+    background-color: #1a1a1a !important;
+    color: #e0e0e0;
 }
 
 .bg-white {
-    background-color: #f8f9fa !important;
-    color: #212529;
+    background-color: #2d2d2d !important;
+    color: #e0e0e0;
 }
 
 main {
@@ -132,25 +134,25 @@ main {
 
 .form-select {
     border: none;
-    background-color: #ffffff;
-    color: #212529;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23212529' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23e0e0e0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }
 
 .form-select:focus {
     box-shadow: none;
     border: none;
-    background-color: #f8f9fa;
+    background-color: #3d3d3d;
 }
 
 .form-select option {
-    background-color: #ffffff;
-    color: #212529;
+    background-color: #2d2d2d;
+    color: #e0e0e0;
 }
 
 .carousel-item {
     aspect-ratio: 2 / 1;
-    background: #f0f0f0;
+    background: #1e1e1e;
     height: 20rem;
 }
 
@@ -169,26 +171,27 @@ main {
 }
 
 .shadow {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important;
 }
 
 .shadow-sm {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3) !important;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    filter: invert(0);
+    filter: invert(1);
 }
 
 .close {
-    color: #212529;
+    color: #e0e0e0;
 }
 
+/* Ссылки в навигации */
 .nav-link {
-    color: #212529;
+    color: #e0e0e0;
 }
 
 .nav-link:hover {
-    color: #000000;
+    color: #ffffff;
 }

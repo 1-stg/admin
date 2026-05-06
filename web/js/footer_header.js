@@ -5,7 +5,7 @@ function addHeader() {
                 <li class="col-6 d-flex align-items-center justify-content-start">
                     <a class="d-flex gap-1 text-decoration-none" href="index.html">
                         <img src="web/assets/logo.svg" alt="логотип" class="header_img">
-                        <button class="btn p-0 mb-0">Админ</button>
+                        <h2 class="fs-5 p-0 mb-0 mt-1">Админ</h2>
                     </a>
                 </li>
                 <div class="col-6 d-flex justify-content-end">
@@ -15,6 +15,7 @@ function addHeader() {
                     <a href="users.html" class="d-flex justify-content-end">
                         <img src="web/assets/user.svg" alt="Объявления" class="w-75">
                     </a>
+                    <img src="/web/assets/sun.svg" alt="Смена темы" class="toggle ms-2 cursor-pointer">
                 </div>
             </nav>
         </header>
