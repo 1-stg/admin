@@ -5,6 +5,7 @@ createApp({
             user: {
                 cars: [],
             },
+            isToast: false,
         }
     },
 
@@ -94,8 +95,9 @@ createApp({
                 users.splice(user[1], 1);
                 users.splice(user[1], 0, user[0]);
 
+
                 localStorage.setItem('users', JSON.stringify(users));
-                console.log(localStorage);
+                this.showToast();
             }
         },
 
@@ -126,6 +128,13 @@ createApp({
             location.href = '/users.html';
             console.log(localStorage);
         },
+
+        showToast() {
+            this.isToast = true;
+            setTimeout(() => {
+                this.isToast = false;
+            }, 3000);
+        }
     },
 
     mounted() {
