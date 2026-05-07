@@ -48,7 +48,7 @@ createApp({
         },
 
         clearData() {
-            localStorage.clear();
+            localStorage.setItem("users", JSON.stringify({}));
             this.loadUsers();
         }
 

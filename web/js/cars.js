@@ -80,7 +80,7 @@ createApp({
         },
 
         clearData() {
-            localStorage.clear();
+            localStorage.setItem("cars", JSON.stringify({}));
             this.loadCars();
         }
 

@@ -10,10 +10,10 @@ function addHeader() {
                 </li>
                 <div class="col-6 d-flex justify-content-end">
                     <a href="cars.html" class="d-flex justify-content-end">
-                        <img src="web/assets/blank.svg" alt="Объявления" class="w-75">
+                        <img src="web/assets/blank.svg" alt="Объявления">
                     </a>
                     <a href="users.html" class="d-flex justify-content-end">
-                        <img src="web/assets/user.svg" alt="Объявления" class="w-75">
+                        <img src="web/assets/user.svg" alt="Объявления" class="ms-2">
                     </a>
                     <img src="/web/assets/sun.svg" alt="Смена темы" class="toggle ms-2 cursor-pointer">
                 </div>

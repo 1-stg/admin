@@ -3,6 +3,7 @@ createApp({
     data() {
         return {
             car: {},
+            user: "",
             searchText: '',
         }
     },
@@ -30,6 +31,7 @@ createApp({
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get('id');
             this.car = this.findCarById(id)[0];
+            this.user = JSON.parse(localStorage.getItem('users')).find(user => user.id == this.car.userId).fullName;
         },
 
         validate() {

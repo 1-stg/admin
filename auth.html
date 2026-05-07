@@ -1,2 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ - Вход</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"
+        defer></script>
+    <script src="/web/js/vue.global.js"></script>
+    <script src="web/js/adminList.js"></script>
+    <script src="web/js/admin.js" defer></script>
+    <link rel="stylesheet" href="web/css/font.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+
+<body class="container">
+    <div id="app">
+        <div class="row mt-5 pt-5">
+            <div class="col-12 col-lg-2"></div>
+            <div class="col-12 col-lg-8">
+                <div class="bg-grey rounded-2 p-3 ">
+                    <div class="bg-white p-3 rounded-2 mb-3 ">
+                        <h2 class="fs-4 fw-Bold text-center mb-0">Вход</h2>
+                    </div>
+
+                    <form @submit.prevent="validate()">
+                        <div class="w-100 text-center mb-3 col-12" v-if="isError"><h2 class="fs-5 fw-normal">Такого пользователя нет</h2></div>
+                        <div class="bg-white rounded-2 p-4">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="login" v-model="login"
+                                    placeholder="Введите логин">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="adminPassword"
+                                    placeholder="Введите пароль" v-model="password">
+                            </div>
+
+                            <div class="d-flex">
+                                <button type="submit" class="btn btn-dark shadow p-3 w-100">войти</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
 <script src="/web/js/jquery-4.0.0.min.js"></script>
-    <script defer src="/web/js/theme.js"></script>
+<script defer src="/web/js/theme.js"></script>
