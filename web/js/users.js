@@ -4,6 +4,8 @@ createApp({
         return {
             users: [],
             searchText: '',
+            isToast: false,
+            toastText: '',
         }
     },
 
@@ -41,6 +43,29 @@ createApp({
             })
         },
 
+        urlToast() {
+            let url = new URLSearchParams(window.location.search);
+            let toast = null;
+            try {
+                toast = url.get('toast');
+            } catch {
+                console.log('нет тоста');
+            }
+
+            if (toast) {
+                this.showToast(toast);
+            }
+        },
+
+        showToast(text = null) {
+            this.isToast = true;
+            this.toastText = text;
+            setTimeout(() => {
+                this.isToast = false;
+                this.toastText = '';
+            }, 10000);
+        },
+
         loadDataFromLocalstorage() {
             localStorage.setItem('cars', JSON.stringify(cars));
             localStorage.setItem('users', JSON.stringify(users));
@@ -56,5 +81,6 @@ createApp({
 
     mounted() {
         this.loadUsers();
+        this.urlToast();
     }
 }).mount('#app')

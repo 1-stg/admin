@@ -12,7 +12,7 @@
     <script src="web/js/usersList.js"></script>
     <script src="web/js/carList.js"></script>
     <script src="web/js/cars.js" defer></script>
-    
+
     <link rel="stylesheet" href="web/css/font.css">
     <link href="https://googleapis.com" rel="stylesheet">
 </head>
@@ -20,6 +20,9 @@
 <body class="container">
     <div id="app">
         <main>
+            <div role="button"
+                class="custom-toast btn-dark rounded-2 shadow-sm p-3 position-fixed bottom-0 end-0 me-2 mb-2"
+                v-if="isToast" @click="isToast=false">{{ toastText }}</div>
             <!-- Поиск -->
             <div class="mt-2 row row-cols-1 row-cols-md-2 g-3">
                 <div class="col">
@@ -32,29 +35,41 @@
                 </div>
                 <div class="col">
                     <button type="button" class="btn h-100 btn-dark rounded-2 w-100">Найдено {{ cars.length }}
-                        пользователей</button>
+                        объявлений</button>
                 </div>
             </div>
 
-            <!-- Пользователи -->
-            <div v-if="cars == []" class="col-12 mt-3">
+            <!-- Объявления -->
+            <div v-if="cars.length === 0" class="col-12 mt-3">
                 <h2 class="fs-4 fw-normal text-center">По результатам поиска ничего не найдено</h2>
             </div>
 
             <div class="row g-2 row-cols-1 row-cols-md-2 row-cols-xl-3 mt-3">
-                <div class="col" v-for="(car, index) in cars">
+                <div class="col" v-for="(car, index) in cars" :key="car.id">
                     <div class="card rounded-2 shadow h-100">
                         <div class="card-img-wrapper position-relative ratio ratio-16x9">
-                            <img :src="car.images.length > 0 ? '/web/carPhoto/' + car.images[car.activeImage] : '/web/userPhoto/base.svg'"
-                                class="card-img-top-custom object-fit-cover"
-                                :class="{ 'base-img': !car.images[car.activeImage] }"
-                                :alt="'Фото машины: ' + car.title">
-                            <div v-if="car.images.length > 1">
-                                <button type="button" class="btn bg-white shadow position-absolute top-50 end-0 me-3 "
-                                    @click="nextImage(index) ">></button>
-                                <button type="button" class="btn bg-white shadow position-absolute top-50 start-0 ms-3"
-                                    @click="prevImage(index)">
-                                    <</button>
+                            <div :id="'carousel-' + car.id" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div v-for="(img, imgIndex) in car.images"
+                                        :class="['carousel-item', { 'active': imgIndex === 0 }]">
+                                        <img :src="img ? '/web/carPhoto/' + img : '/web/userPhoto/base.svg'"
+                                            class="card-img-top-custom object-fit-cover w-100"
+                                            :class="{ 'base-img': !img }" :alt="'Фото машины: ' + car.title">
+                                    </div>
+                                </div>
+
+                                <div v-if="car.images && car.images.length > 1">
+                                    <button class="carousel-control-prev" type="button"
+                                        :data-bs-target="'#carousel-' + car.id" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Предыдущий</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        :data-bs-target="'#carousel-' + car.id" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Следующий</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 

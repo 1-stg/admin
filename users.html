@@ -12,6 +12,7 @@
     <script src="web/js/carList.js"></script>
     <script src="web/js/usersList.js"></script>
     <script src="web/js/users.js" defer></script>
+    <script src="web/js/toast.js"></script>
 
     <link rel="stylesheet" href="web/css/font.css">
     <link href="https://googleapis.com" rel="stylesheet">
@@ -20,6 +21,9 @@
 <body class="container" data-bs-theme="light">
     <div id="app">
         <main>
+            <div role="button"
+                class="custom-toast btn-dark rounded-2 shadow-sm p-3 w-50 position-fixed bottom-0 end-0 me-2 mb-2"
+                v-if="isToast" @click="isToast=false">{{ toastText }}</div>
             <!-- Поиск -->
             <div class="mt-2 row row-cols-1 row-cols-md-2 g-3">
                 <div class="col">

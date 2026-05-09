@@ -12,6 +12,10 @@ header img {
     width: 1.6rem;
 }
 
+.custom-toast {
+    z-index: 1000 !important;
+}
+
 .toggle {
     width: 1.6rem;
     cursor: pointer;
@@ -20,7 +24,7 @@ header img {
 .btn-dark {
     background-color: #414141;
     border: none;
-    color: white;
+    color: white !important;
 }
 
 .btn-dark:hover {

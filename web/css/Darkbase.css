@@ -14,6 +14,9 @@ header img {
     filter: invert(1);
 }
 
+.custom-toast {
+    z-index: 1000 !important;
+}
 
 .toggle {
     width: 1.6rem;

@@ -5,6 +5,8 @@ createApp({
             car: {},
             user: "",
             searchText: '',
+            isToast: false,
+            toastText: '',
         }
     },
 
@@ -66,6 +68,15 @@ createApp({
             }
         },
 
+        showToast(text) {
+            this.isToast = true;
+            this.toastText = text;
+            setTimeout(() => {
+                this.isToast = false;
+                this.toastText = '';
+            }, 10000);
+        },
+
         toggleStatus(id) {
             let cars = this.getCars();
             const carIndex = cars.findIndex(user => user.id === id);
@@ -90,7 +101,7 @@ createApp({
             cars.splice(car[1], 1);
 
             localStorage.setItem('cars', JSON.stringify(cars));
-            location.href = '/cars.html';
+            location.href = '/cars.html?toast=Объявление%20удалено';
         },
     },
 

@@ -6,6 +6,7 @@ createApp({
                 cars: [],
             },
             isToast: false,
+            toastText: '',
         }
     },
 
@@ -46,6 +47,10 @@ createApp({
             });
 
             this.user.cars = userCars;
+
+            this.$nextTick(() => {
+                this.initCarousels();
+            });
         },
 
         nextImage(index) {
@@ -74,11 +79,45 @@ createApp({
             this.user.cars[index].activeImage = activeImage;
         },
 
+        initCarousels() {
+            if (typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
+                const carousels = document.querySelectorAll('.carousel');
+                carousels.forEach(carousel => {
+                    const existingCarousel = bootstrap.Carousel.getInstance(carousel);
+                    if (existingCarousel) {
+                        existingCarousel.dispose();
+                    }
+
+                    new bootstrap.Carousel(carousel, {
+                        interval: 3000,
+                        ride: 'carousel',
+                        wrap: true,
+                        pause: 'hover'
+                    });
+                });
+            } else {
+                console.warn('Bootstrap не загружен, повторная попытка через 100мс');
+                setTimeout(() => this.initCarousels(), 100);
+            }
+        },
+
         validate() {
+            if (!this.user.fullName || this.user.fullName.trim() === '') {
+                this.showToast('Пожалуйста, введите ФИО');
+                return false;
+            }
+            if (!this.user.phone || this.user.phone.trim() === '') {
+                this.showToast('Пожалуйста, введите телефон');
+                return false;
+            }
+            if (!this.user.email || this.user.email.trim() === '') {
+                this.showToast('Пожалуйста, введите email');
+                return false;
+            }
             return true;
         },
 
-        updateUser() {
+        updateUser(toastText) {
             if (this.validate()) {
                 let users = this.getUsers();
                 let user = this.findUserById(this.user.id);
@@ -91,13 +130,14 @@ createApp({
                     password: this.user.password,
                     phone: this.user.phone,
                     email: this.user.email,
+                    status: this.user.status
                 };
                 users.splice(user[1], 1);
                 users.splice(user[1], 0, user[0]);
 
 
                 localStorage.setItem('users', JSON.stringify(users));
-                this.showToast();
+                this.showToast(toastText);
             }
         },
 
@@ -120,26 +160,42 @@ createApp({
         },
 
         deleteUser() {
-            let users = this.getUsers();
-            let user = this.findUserById(this.user.id);
-            users.splice(user[1], 1);
+            if (confirm('Вы уверены, что хотите удалить этого пользователя?')) {
+                let users = this.getUsers();
+                let user = this.findUserById(this.user.id);
+                users.splice(user[1], 1);
 
-            localStorage.setItem('users', JSON.stringify(users));
-            location.href = '/users.html';
-            console.log(localStorage);
+                localStorage.setItem('users', JSON.stringify(users));
+                location.href = '/users.html?toast=Пользователь%20удалён';
+                console.log(localStorage);
+            }
         },
 
-        showToast() {
+        showToast(text) {
             this.isToast = true;
+            this.toastText = text;
             setTimeout(() => {
                 this.isToast = false;
-            }, 3000);
+                this.toastText = '';
+            }, 10000);
         }
     },
 
     mounted() {
         this.loadUser();
-    }
+    },
 
+    watch: {
+        'user.cars': {
+            handler(newCars) {
+                if (newCars && newCars.length > 0) {
+                    this.$nextTick(() => {
+                        this.initCarousels();
+                    });
+                }
+            },
+            deep: true
+        }
+    }
 
 }).mount('#app');
