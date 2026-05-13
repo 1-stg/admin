@@ -47,7 +47,11 @@
             <div class="row g-2 row-cols-1 row-cols-md-2 row-cols-xl-3 mt-3">
                 <div class="col" v-for="(car, index) in cars" :key="car.id">
                     <div class="card rounded-2 shadow h-100">
+                        <div role="button"
+                            class="btn-dark rounded-2 shadow-sm p-2 position-absolute top-0 end-0 me-2 mt-2 is-blocked"
+                            v-if="car.status === 'blocked'">Заблокирован</div>
                         <div class="card-img-wrapper position-relative ratio ratio-16x9">
+
                             <div :id="'carousel-' + car.id" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div v-for="(img, imgIndex) in car.images"

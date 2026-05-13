@@ -22,7 +22,11 @@
         <div role="button" class="custom-toast btn-dark rounded-2 shadow-sm p-3 position-fixed bottom-0 end-0 me-2 mb-2"
             v-if="isToast" @click="isToast=false">{{ toastText }}</div>
         <main>
+
             <div id="carouselExample" class="carousel slide mt-2">
+                <div role="button"
+                    class="btn-dark rounded-2 shadow-sm p-2 position-absolute top-0 end-0 me-2 mt-2 is-blocked"
+                    v-if="car.status === 'blocked'">Заблокирован</div>
                 <div class="carousel-inner">
                     <div class="carousel-item" v-for="(image, index) in car.images" :class="{'active': index == 0}">
                         <img :src="'/web/carPhoto' + image" class="d-block w-100"

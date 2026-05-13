@@ -4,6 +4,10 @@ body {
     color: #212529;
 }
 
+.is-blocked {
+    z-index: 1000000 !important;
+}
+
 header {
     background-color: #ffffff;
 }

@@ -145,6 +145,7 @@ createApp({
                 this.showToast('Ошибка: данные не найдены');
             }
         },
+        
 
         clearData() {
             localStorage.setItem("cars", JSON.stringify([]));

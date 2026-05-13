@@ -16,8 +16,7 @@
 
 <body class="container">
     <div id="app">
-        <div class="row mt-5 pt-5">
-            <div class="col-12 col-lg-2"></div>
+        <div class="row d-flex vh-100 justify-content-center align-items-center">
             <div class="col-12 col-lg-8">
                 <div class="bg-grey rounded-2 p-3 ">
                     <div class="bg-white p-3 rounded-2 mb-3 ">
@@ -25,7 +24,9 @@
                     </div>
 
                     <form @submit.prevent="validate()">
-                        <div class="w-100 text-center mb-3 col-12" v-if="isError"><h2 class="fs-5 fw-normal">Такого пользователя нет</h2></div>
+                        <div class="w-100 text-center mb-3 col-12" v-if="isError">
+                            <h2 class="fs-5 fw-normal">Такого пользователя нет</h2>
+                        </div>
                         <div class="bg-white rounded-2 p-4">
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="login" v-model="login"
@@ -44,7 +45,6 @@
                     </form>
                 </div>
             </div>
-            <div class="col-12 col-lg-2"></div>
         </div>
 
     </div>
