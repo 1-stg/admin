@@ -166,7 +166,7 @@ createApp({
                 users.splice(user[1], 1);
 
                 localStorage.setItem('users', JSON.stringify(users));
-                location.href = '/users.html?toast=Пользователь%20удалён';
+                location.href = '/admin/users.html?toast=Пользователь%20удалён';
                 console.log(localStorage);
             }
         },

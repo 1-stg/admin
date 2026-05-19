@@ -101,7 +101,7 @@ createApp({
             cars.splice(car[1], 1);
 
             localStorage.setItem('cars', JSON.stringify(cars));
-            location.href = '/cars.html?toast=Объявление%20удалено';
+            location.href = '/admin/cars.html?toast=Объявление%20удалено';
         },
     },
 
