@@ -197,3 +197,51 @@ body {
 .stat-value {
     font-weight: 600;
 }
+
+
+.chart-bar-item {
+    position: relative;
+}
+
+.chart-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 1000;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.15s ease;
+    font-family: monospace;
+    backdrop-filter: blur(4px);
+}
+
+[data-bs-theme="dark"] .chart-tooltip {
+    background: rgba(30, 30, 30, 0.95);
+    color: #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.pie-segment {
+    cursor: pointer;
+    transition: stroke-width 0.1s ease;
+}
+
+.pie-segment:hover {
+    stroke-width: 12 !important;
+    filter: brightness(0.95);
+}
+
+.chart-bar-graph {
+    cursor: pointer;
+}
+
+.align-bottom-charts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}

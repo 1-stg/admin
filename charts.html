@@ -26,7 +26,9 @@
                         </div>
                         <div class="chart-scroll-wrapper">
                             <div class="chart-bars-container">
-                                <div class="chart-bar-item" v-for="(num, index) in usersCount" :key="index">
+                                <div class="chart-bar-item" v-for="(num, index) in usersCount" :key="'u'+index"
+                                    @mouseenter="showTooltip($event, 'users', num, index)" @mousemove="moveTooltip"
+                                    @mouseleave="hideTooltip">
                                     <div class="chart-bar-graph"
                                         :style="{ height: getBarHeight(num, 'users') + 'px', minHeight: '30px', width: '100%' }">
                                         <div class="bar-inner"
@@ -55,14 +57,23 @@
                                 <svg class="pie-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="50" cy="50" r="45" fill="transparent" stroke="#e9ecef"
                                         stroke-width="8" />
-                                    <circle cx="50" cy="50" r="45" fill="transparent" :stroke="adsColors.active"
-                                        stroke-width="8" :stroke-dasharray="getAdsActiveDash()" stroke-dashoffset="0" />
-                                    <circle cx="50" cy="50" r="45" fill="transparent" :stroke="adsColors.blocked"
-                                        stroke-width="8" :stroke-dasharray="getAdsBlockedDash()"
-                                        :stroke-dashoffset="getAdsBlockedOffset()" />
-                                    <circle cx="50" cy="50" r="45" fill="transparent" :stroke="adsColors.archived"
-                                        stroke-width="8" :stroke-dasharray="getAdsArchivedDash()"
-                                        :stroke-dashoffset="getAdsArchivedOffset()" />
+                                    <circle class="pie-segment" cx="50" cy="50" r="45" fill="transparent"
+                                        :stroke="adsColors.active" stroke-width="8"
+                                        :stroke-dasharray="getAdsActiveDash()" stroke-dashoffset="0"
+                                        @mouseenter="showPieTooltip($event, 'active', adsActiveCount, adsActivePercent)"
+                                        @mousemove="moveTooltip" @mouseleave="hideTooltip" />
+                                    <circle class="pie-segment" cx="50" cy="50" r="45" fill="transparent"
+                                        :stroke="adsColors.blocked" stroke-width="8"
+                                        :stroke-dasharray="getAdsBlockedDash()"
+                                        :stroke-dashoffset="getAdsBlockedOffset()"
+                                        @mouseenter="showPieTooltip($event, 'blocked', adsBlockedCount, adsBlockedPercent)"
+                                        @mousemove="moveTooltip" @mouseleave="hideTooltip" />
+                                    <circle class="pie-segment" cx="50" cy="50" r="45" fill="transparent"
+                                        :stroke="adsColors.archived" stroke-width="8"
+                                        :stroke-dasharray="getAdsArchivedDash()"
+                                        :stroke-dashoffset="getAdsArchivedOffset()"
+                                        @mouseenter="showPieTooltip($event, 'archived', adsArchivedCount, adsArchivedPercent)"
+                                        @mousemove="moveTooltip" @mouseleave="hideTooltip" />
                                 </svg>
                                 <div class="pie-center-text">
                                     <div class="total-value">{{ totalAdsCountFormatted }}</div>
@@ -96,12 +107,16 @@
                                 <svg class="pie-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="50" cy="50" r="45" fill="transparent" stroke="#e9ecef"
                                         stroke-width="8" />
-                                    <circle cx="50" cy="50" r="45" fill="transparent" :stroke="earnColors.subscriptions"
-                                        stroke-width="8" :stroke-dasharray="getSubscriptionsDash()"
-                                        stroke-dashoffset="0" />
-                                    <circle cx="50" cy="50" r="45" fill="transparent" :stroke="earnColors.promotion"
-                                        stroke-width="8" :stroke-dasharray="getPromotionDash()"
-                                        :stroke-dashoffset="getPromotionOffset()" />
+                                    <circle class="pie-segment" cx="50" cy="50" r="45" fill="transparent"
+                                        :stroke="earnColors.subscriptions" stroke-width="8"
+                                        :stroke-dasharray="getSubscriptionsDash()" stroke-dashoffset="0"
+                                        @mouseenter="showEarnTooltip($event, 'subscriptions', subscriptionAmount, subscriptionsPercent)"
+                                        @mousemove="moveTooltip" @mouseleave="hideTooltip" />
+                                    <circle class="pie-segment" cx="50" cy="50" r="45" fill="transparent"
+                                        :stroke="earnColors.promotion" stroke-width="8"
+                                        :stroke-dasharray="getPromotionDash()" :stroke-dashoffset="getPromotionOffset()"
+                                        @mouseenter="showEarnTooltip($event, 'promotion', promotionAmount, promotionPercent)"
+                                        @mousemove="moveTooltip" @mouseleave="hideTooltip" />
                                 </svg>
                                 <div class="pie-center-text">
                                     <div class="total-value">{{ totalEarningsFormatted }}</div>
@@ -129,7 +144,9 @@
                         </div>
                         <div class="chart-scroll-wrapper">
                             <div class="chart-bars-container">
-                                <div class="chart-bar-item" v-for="(num, index) in advertisementCount" :key="index">
+                                <div class="chart-bar-item" v-for="(num, index) in advertisementCount" :key="'a'+index"
+                                    @mouseenter="showTooltip($event, 'ads', num, index)" @mousemove="moveTooltip"
+                                    @mouseleave="hideTooltip">
                                     <div class="chart-bar-graph"
                                         :style="{ height: getBarHeight(num, 'ads') + 'px', minHeight: '30px', width: '100%' }">
                                         <div class="bar-inner"
@@ -150,6 +167,9 @@
             </div>
         </main>
     </div>
+    <div id="global-tooltip" class="chart-tooltip" style="opacity:0; visibility:hidden;"></div>
+
+
 </body>
 
 </html>

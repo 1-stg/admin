@@ -33,6 +33,30 @@
         return -offset;
     }
 
+    const tooltipEl = document.getElementById('global-tooltip');
+
+    function updateTooltip(text, x, y) {
+        if (!tooltipEl) return;
+        tooltipEl.innerHTML = text;
+        tooltipEl.style.opacity = '1';
+        tooltipEl.style.visibility = 'visible';
+        let left = x + 15;
+        let top = y - 30;
+        if (left + tooltipEl.offsetWidth > window.innerWidth - 10) {
+            left = x - tooltipEl.offsetWidth - 10;
+        }
+        if (top < 10) top = y + 20;
+        tooltipEl.style.left = left + 'px';
+        tooltipEl.style.top = top + 'px';
+    }
+
+    function hideTooltipGlobal() {
+        if (tooltipEl) {
+            tooltipEl.style.opacity = '0';
+            tooltipEl.style.visibility = 'hidden';
+        }
+    }
+
     const app = Vue.createApp({
         data() {
             return {
@@ -96,6 +120,11 @@
             window.addEventListener('resize', this.handleResize);
             this.updateThemeColors();
             this.observeThemeChanges();
+            this.alignChartsBottom();
+            window.addEventListener('resize', () => this.alignChartsBottom());
+        },
+        updated() {
+            this.alignChartsBottom();
         },
         beforeUnmount() {
             window.removeEventListener('resize', this.handleResize);
@@ -104,6 +133,7 @@
             handleResize() {
                 this.windowWidth = window.innerWidth;
                 this.updateMaxHeights();
+                this.alignChartsBottom();
             },
             updateMaxHeights() {
                 const width = this.windowWidth;
@@ -189,6 +219,69 @@
                     });
                 });
                 observer.observe(document.body, { attributes: true });
+            },
+            alignChartsBottom() {
+                this.$nextTick(() => {
+                    const firstGraph = document.querySelector('.col-12:first-child .chart-bars-container');
+                    const lastGraph = document.querySelector('.col-12:last-child .chart-bars-container');
+                    if (firstGraph && lastGraph) {
+                        const firstItems = firstGraph.querySelectorAll('.chart-bar-item');
+                        const lastItems = lastGraph.querySelectorAll('.chart-bar-item');
+                        if (firstItems.length && lastItems.length) {
+                            const firstHeights = Array.from(firstItems).map(item => item.querySelector('.chart-bar-graph')?.offsetHeight || 0);
+                            const lastHeights = Array.from(lastItems).map(item => item.querySelector('.chart-bar-graph')?.offsetHeight || 0);
+                            const maxFirst = Math.max(...firstHeights, 30);
+                            const maxLast = Math.max(...lastHeights, 30);
+                            firstItems.forEach((item, idx) => {
+                                const bar = item.querySelector('.chart-bar-graph');
+                                if (bar) bar.style.height = firstHeights[idx] + 'px';
+                            });
+                            lastItems.forEach((item, idx) => {
+                                const bar = item.querySelector('.chart-bar-graph');
+                                if (bar) bar.style.height = lastHeights[idx] + 'px';
+                            });
+                        }
+                    }
+                });
+            },
+            showTooltip(event, type, value, monthIdx) {
+                const monthName = this.months[monthIdx];
+                let text = '';
+                if (type === 'users') {
+                    text = `📊 ${monthName} ${this.currentYear}: +${this.formatNumber(value)} новых пользователей`;
+                } else {
+                    text = `📈 ${monthName} ${this.currentYear}: +${this.formatNumber(value)} новых объявлений`;
+                }
+                updateTooltip(text, event.clientX, event.clientY);
+            },
+            showPieTooltip(event, segmentType, count, percent) {
+                let label = '';
+                if (segmentType === 'active') label = 'Активные объявления';
+                else if (segmentType === 'blocked') label = 'Заблокированные объявления';
+                else label = 'Объявления в архиве';
+                const text = `🔘 ${label}: ${count} шт. (${percent}%)`;
+                updateTooltip(text, event.clientX, event.clientY);
+            },
+            showEarnTooltip(event, segmentType, amount, percent) {
+                let label = segmentType === 'subscriptions' ? 'Доход с подписок' : 'Доход с продвижения';
+                const formatted = formatMoney(amount);
+                const text = `💰 ${label}: ${formatted} (${percent}%)`;
+                updateTooltip(text, event.clientX, event.clientY);
+            },
+            moveTooltip(event) {
+                if (tooltipEl && tooltipEl.style.visibility === 'visible') {
+                    let left = event.clientX + 15;
+                    let top = event.clientY - 30;
+                    if (left + tooltipEl.offsetWidth > window.innerWidth - 10) {
+                        left = event.clientX - tooltipEl.offsetWidth - 10;
+                    }
+                    if (top < 10) top = event.clientY + 20;
+                    tooltipEl.style.left = left + 'px';
+                    tooltipEl.style.top = top + 'px';
+                }
+            },
+            hideTooltip() {
+                hideTooltipGlobal();
             }
         }
     });
