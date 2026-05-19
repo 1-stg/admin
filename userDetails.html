@@ -14,7 +14,7 @@
     <script src="web/js/userDetails.js" defer></script>
 
     <link rel="stylesheet" href="web/css/font.css">
-
+    <link rel="stylesheet" href="web/css/base.css">
 </head>
 
 <body class="container">
@@ -29,7 +29,7 @@
                         <div role="button"
                             class="btn-dark rounded-2 shadow-sm p-2 position-absolute bottom-0 end-0 me-2 mb-2"
                             v-if="user.status === 'blocked'">Заблокирован</div>
-                        <img :src="user.photo ? '/web/userPhoto/' + user.photo : '/web/userPhoto/base.svg'"
+                        <img :src="user.photo ? 'web/userPhoto/' + user.photo : 'web/userPhoto/base.svg'"
                             class="card-img-top-custom" :class="{ 'base-img': !user.photo }"
                             :alt="'Фото пользователя: ' + user.fullName">
                     </div>
