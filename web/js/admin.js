@@ -1,8 +1,6 @@
 const activeAdmin = JSON.parse(localStorage.getItem('activeAdmin'));
 
-if (window.location.pathname !== '/auth.html' &&
-    window.location.pathname !== 'auth.html') {
-
+if (window.location.pathname !== '/auth.html') {
     if (!activeAdmin || (Object.keys(activeAdmin).length === 0 && activeAdmin.constructor === Object)) {
         location.href = 'auth.html';
     }
