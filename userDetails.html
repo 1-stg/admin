@@ -87,7 +87,7 @@
                                 <div class="carousel-inner">
                                     <div v-for="(img, imgIndex) in car.images"
                                         :class="['carousel-item', { 'active': imgIndex === 0 }]">
-                                        <img :src="img ? '/web/carPhoto/' + img : '/web/userPhoto/base.svg'"
+                                        <img :src="img ? 'web/carPhoto/' + img : 'web/userPhoto/base.svg'"
                                             class="card-img-top-custom object-fit-cover w-100"
                                             :class="{ 'base-img': !img }" :alt="'Фото машины: ' + car.title">
                                     </div>

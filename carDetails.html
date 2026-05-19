@@ -29,7 +29,7 @@
                     v-if="car.status === 'blocked'">Заблокирован</div>
                 <div class="carousel-inner">
                     <div class="carousel-item" v-for="(image, index) in car.images" :class="{'active': index == 0}">
-                        <img :src="'/web/carPhoto' + image" class="d-block w-100"
+                        <img :src="'web/carPhoto' + image" class="d-block w-100"
                             :alt="'Изображение машины:' + car.title">
                     </div>
                 </div>
