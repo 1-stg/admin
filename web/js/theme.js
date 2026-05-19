@@ -1,7 +1,7 @@
 $(() => {
     const SCHEMA_LIGHT = 'light';
     const SCHEMA_DARK = 'dark';
-    const pathCss = '/web/css';
+    const pathCss = 'web/css';
     let currentSchema;
 
     const getSchema = () => currentSchema = localStorage.getItem('schema');
