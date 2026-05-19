@@ -101,7 +101,11 @@ createApp({
             cars.splice(car[1], 1);
 
             localStorage.setItem('cars', JSON.stringify(cars));
-            location.href = '/admin/cars.html?toast=Объявление%20удалено';
+            if (location.href.toString().includes('github')) {
+                location.href = '/admin/users.html?toast=Пользователь%20удалён';
+            } else {
+                location.href = '/users.html?toast=Пользователь%20удалён';
+            }
         },
     },
 

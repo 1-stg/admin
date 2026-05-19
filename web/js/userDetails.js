@@ -163,11 +163,27 @@ createApp({
             if (confirm('Вы уверены, что хотите удалить этого пользователя?')) {
                 let users = this.getUsers();
                 let user = this.findUserById(this.user.id);
+                let cars = this.getCars()
+                let userCars = cars.reduce((acc, car, index) => {
+                    if (car.userId == user[0].id) {
+                        acc.push(index);
+                    };
+                    return acc;
+                }, []);
+
+                userCars.forEach((carIndex) => {
+                    cars.splice(carIndex, 1);
+                })
+
                 users.splice(user[1], 1);
 
                 localStorage.setItem('users', JSON.stringify(users));
-                location.href = '/admin/users.html?toast=Пользователь%20удалён';
-                console.log(localStorage);
+                localStorage.setItem('cars', JSON.stringify(cars));
+                if (location.href.toString().includes('github')) {
+                    location.href = '/admin/users.html?toast=Пользователь%20удалён';
+                } else {
+                    location.href = '/users.html?toast=Пользователь%20удалён';
+                }
             }
         },
 
