@@ -17,15 +17,19 @@ body {
 }
 
 .chart-scroll-wrapper {
-    overflow-x: auto;
+    /* overflow-x: auto; */
     overflow-y: visible;
     width: 100%;
     margin-bottom: 0.5rem;
     scrollbar-width: thin;
 }
 
+
+
+
+
 .chart-scroll-wrapper::-webkit-scrollbar {
-    height: 6px;
+    height: 10px;
 }
 
 .chart-scroll-wrapper::-webkit-scrollbar-track {
@@ -201,6 +205,19 @@ body {
 
 .chart-bar-item {
     position: relative;
+    display: flex;
+    flex-basis: 6.96%;
+    justify-content: end;
+}
+
+@media (max-width: 1800px) {
+    .chart-scroll-wrapper {
+        overflow-x: auto;
+    }
+
+    .chart-bar-item {
+        flex-basis: 8%;
+    }
 }
 
 .chart-tooltip {
