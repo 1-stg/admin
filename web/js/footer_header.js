@@ -4,18 +4,18 @@ function addHeader() {
             <nav class="row mx-1">
                 <li class="col-6 d-flex align-items-center justify-content-start">
                     <a class="d-flex gap-1 text-decoration-none" href="index.html">
-                        <img src="web/assets/logo.svg" alt="логотип" class="header_img">
+                        <img src="./web/assets/logo.svg" alt="логотип" class="header_img">
                         <h2 class="fs-5 p-0 mb-0 mt-1">Админ</h2>
                     </a>
                 </li>
                 <div class="col-6 d-flex justify-content-end">
                     <a href="cars.html" class="d-flex justify-content-end">
-                        <img src="web/assets/blank.svg" alt="Объявления">
+                        <img src="./web/assets/blank.svg" alt="Объявления">
                     </a>
                     <a href="users.html" class="d-flex justify-content-end">
-                        <img src="web/assets/user.svg" alt="Объявления" class="ms-2">
+                        <img src="./web/assets/user.svg" alt="Объявления" class="ms-2">
                     </a>
-                    <img src="/web/assets/sun.svg" alt="Смена темы" class="toggle ms-2 cursor-pointer">
+                    <img src="./web/assets/sun.svg" alt="Смена темы" class="toggle ms-2 cursor-pointer">
                 </div>
             </nav>
         </header>
